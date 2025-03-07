@@ -11,6 +11,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background: #e4f4fd;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
 html,
 body {
   height: 100%;

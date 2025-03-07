@@ -1,10 +1,25 @@
 // ********* DESIGN SYSTEM *********
 
 // ************ COLORS ************
+$color-white: #fff;
+$color-elephant: #133041;
+$color-marble-blue: #4e6e7e;
+$color-grey-blue: #6b94a8;
+$color-pear: #d8db2f;
+$color-pattens-blue: #e4f4fd;
+$color-rum-swizzle: rgba(216, 219, 47, 0.15);
+$color-light-grey-blue: #9abed5;
+$color-firefly: rgba(0, 0, 0, 0.25);
+$color-dark-slate-grey: rgba(154, 190, 213, 0.25);
+$color-dark-jungle-green: #1e1e1e;
+$color-grapefruit: #d73328;
 
 // ********** FONT-FAMILY **********
+$font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
 
 // ********* FONT-WEIGHTS *********
+$fw-medium: 500;
+$fw-bold: 700;
 
 // ************* BASE *************
 *,
@@ -21,11 +36,19 @@ html {
 }
 
 body {
-  // background:
-  // font-family:
+  background: $color-pattens-blue;
+  font-family: $font-plus-jakarta-sans;
 }
 
 html,
 body {
   height: 100%;
+}
+
+// ******** MOBILE LAYOUTS ********
+
+// ********* 375px LAYOUT *********
+
+// ************** APP **************
+.app {
 }
