@@ -51,4 +51,81 @@ body {
 
 // ************** APP **************
 .app {
+  display: flex;
+  flex-direction: column;
+}
+
+// ************ INPUTS ************
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  background: $color-white;
+  padding: 3.2rem 2.4rem;
+
+  &__header-clear {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__header {
+    color: $color-elephant;
+    font-size: 2.4rem;
+    font-weight: $fw-bold;
+    line-height: 3rem;
+  }
+
+  &__clear {
+    color: $color-marble-blue;
+    font-size: 1.6rem;
+    font-weight: $fw-medium;
+    line-height: 2.4rem;
+    text-decoration-line: underline;
+    text-underline-position: from-font;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+}
+
+// ************ INPUT *************
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  &__label {
+    color: $color-marble-blue;
+    font-size: 1.6rem;
+    font-weight: $fw-medium;
+    line-height: 2.4rem;
+  }
+
+  &__container {
+    position: relative;
+    height: 4.8rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid $color-grey-blue;
+  }
+
+  &__prefix-suffix {
+    position: absolute;
+    display: flex;
+    padding: 1.2rem 1.6rem;
+    justify-content: center;
+    align-items: center;
+    background: $color-pattens-blue;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0 1.6rem;
+    height: 100%;
+    border: none;
+    border-radius: 0.4rem;
+  }
 }
