@@ -45,6 +45,14 @@ body {
   height: 100%;
 }
 
+// ************ MIXINS ************
+@mixin prefix-suffix-input {
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: $fw-bold;
+  line-height: 2.25rem;
+}
+
 // ******** MOBILE LAYOUTS ********
 
 // ********* 375px LAYOUT *********
@@ -90,6 +98,12 @@ body {
     flex-direction: column;
     gap: 2.4rem;
   }
+
+  &__term-rate {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
 }
 
 // ************ INPUT *************
@@ -106,26 +120,59 @@ body {
   }
 
   &__container {
-    position: relative;
+    display: flex;
     height: 4.8rem;
     border-radius: 0.4rem;
     border: 0.1rem solid $color-grey-blue;
+
+    &:focus-within {
+      border-color: $color-elephant;
+    }
   }
 
   &__prefix-suffix {
-    position: absolute;
     display: flex;
     padding: 1.2rem 1.6rem;
     justify-content: center;
     align-items: center;
     background: $color-pattens-blue;
+    border-radius: 0.4rem 0 0 0.4rem;
+    color: $color-marble-blue;
+    @include prefix-suffix-input;
   }
 
   &__input {
     width: 100%;
     padding: 0 1.6rem;
-    height: 100%;
     border: none;
+    outline: none;
     border-radius: 0.4rem;
+    color: $color-elephant;
+    font-family: inherit;
+    caret-color: $color-dark-jungle-green;
+    @include prefix-suffix-input;
   }
+
+  &__error {
+    color: $color-grapefruit;
+    font-size: 1.4rem;
+    font-weight: $fw-medium;
+    line-height: 2.1rem;
+  }
+
+  &__radios {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__radio-container {
+    // UP TO STYLING THIS
+  }
+}
+
+// ******** DYNAMIC-STYLES ********
+.suffix {
+  order: 1;
+  border-radius: 0 0.4rem 0.4rem 0;
 }

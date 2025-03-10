@@ -57,6 +57,11 @@ body {
   flex-direction: column;
   gap: 2.4rem;
 }
+.inputs__term-rate {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
 
 .input {
   display: flex;
@@ -70,23 +75,53 @@ body {
   line-height: 2.4rem;
 }
 .input__container {
-  position: relative;
+  display: flex;
   height: 4.8rem;
   border-radius: 0.4rem;
   border: 0.1rem solid #6b94a8;
 }
+.input__container:focus-within {
+  border-color: #133041;
+}
 .input__prefix-suffix {
-  position: absolute;
   display: flex;
   padding: 1.2rem 1.6rem;
   justify-content: center;
   align-items: center;
   background: #e4f4fd;
+  border-radius: 0.4rem 0 0 0.4rem;
+  color: #4e6e7e;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.25rem;
 }
 .input__input {
   width: 100%;
   padding: 0 1.6rem;
-  height: 100%;
   border: none;
+  outline: none;
   border-radius: 0.4rem;
+  color: #133041;
+  font-family: inherit;
+  caret-color: #1e1e1e;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+}
+.input__error {
+  color: #d73328;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2.1rem;
+}
+.input__radios {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.suffix {
+  order: 1;
+  border-radius: 0 0.4rem 0.4rem 0;
 }/*# sourceMappingURL=main.css.map */
