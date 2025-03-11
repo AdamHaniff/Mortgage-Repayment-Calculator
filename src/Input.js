@@ -16,8 +16,8 @@ function Input({ label, name, prefixSuffix, hasSuffix }) {
         </div>
       ) : (
         <div className="input__radios">
-          <RadioContainer name={name} value="repayment" />
-          <RadioContainer name={name} value="interest-only" />
+          <RadioContainer name={name} value="repayment" checked={true} />
+          <RadioContainer name={name} value="interest-only" checked={false} />
         </div>
       )}
       <InputError />
