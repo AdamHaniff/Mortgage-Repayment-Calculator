@@ -16,11 +16,11 @@ function Input({ label, name, prefixSuffix, hasSuffix }) {
         </div>
       ) : (
         <div className="input__radios">
-          <RadioContainer name={name} value="repayment" checked={true} />
+          <RadioContainer name={name} value="repayment" checked={false} />
           <RadioContainer name={name} value="interest-only" checked={false} />
         </div>
       )}
-      <InputError />
+      {/* <InputError /> */}
     </div>
   );
 }

@@ -5,7 +5,7 @@ function Card() {
     <div className="card">
       <LabelValue
         label="Your monthly repayments"
-        value="$1797.74"
+        value="$1,797.74"
         isMonthly={true}
       />
       <div className="card__separator"></div>

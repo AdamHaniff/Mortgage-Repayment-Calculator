@@ -53,6 +53,27 @@ body {
   line-height: 2.25rem;
 }
 
+@mixin input-container-styles {
+  display: flex;
+  height: 4.8rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid $color-grey-blue;
+}
+
+@mixin results-header-term {
+  color: $color-white;
+  font-size: 2.4rem;
+  font-weight: $fw-bold;
+  line-height: 3rem;
+}
+
+@mixin instructions-text-label {
+  color: $color-light-grey-blue;
+  font-size: 1.6rem;
+  font-weight: $fw-medium;
+  line-height: 2.4rem;
+}
+
 // ******** MOBILE LAYOUTS ********
 
 // ********* 375px LAYOUT *********
@@ -104,6 +125,29 @@ body {
     flex-direction: column;
     gap: 2.4rem;
   }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    border: none;
+    height: 5.6rem;
+    padding: 0 4rem;
+    border-radius: 99.9rem;
+    background: $color-pear;
+    color: $color-elephant;
+    font-family: $font-plus-jakarta-sans;
+    font-size: 1.8rem;
+    font-weight: $fw-bold;
+    line-height: 2.25rem;
+  }
+
+  &__btn-icon {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }
 
 // ************ INPUT *************
@@ -120,10 +164,7 @@ body {
   }
 
   &__container {
-    display: flex;
-    height: 4.8rem;
-    border-radius: 0.4rem;
-    border: 0.1rem solid $color-grey-blue;
+    @include input-container-styles;
 
     &:focus-within {
       border-color: $color-elephant;
@@ -167,10 +208,7 @@ body {
   }
 
   &__radio-container {
-    border-radius: 0.4rem;
-    border: 0.1rem solid $color-grey-blue;
-    height: 4.8rem;
-    display: flex;
+    @include input-container-styles;
     align-items: center;
     gap: 1.6rem;
     padding: 0 1.6rem;
@@ -221,6 +259,92 @@ body {
       opacity: 0;
       transition: opacity 0.3s;
     }
+  }
+}
+
+// ************ RESULTS ************
+.results {
+  background: $color-elephant;
+  padding: 3.2rem 2.4rem;
+}
+
+// ********** UNAVAILABLE **********
+.unavailable {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-items: center;
+
+  &__illustration {
+    display: block;
+    width: 19.2rem;
+    height: 19.2rem;
+  }
+
+  &__results-text {
+    @include results-header-term;
+  }
+
+  &__instructions {
+    @include instructions-text-label;
+    text-align: center;
+  }
+}
+
+// *********** AVAILABLE ***********
+.available {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  &__header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &__header {
+    @include results-header-term;
+  }
+
+  &__text {
+    @include instructions-text-label;
+  }
+}
+
+// ************* CARD *************
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 2.4rem 1.6rem;
+  border-radius: 0.8rem;
+  border-top: 0.4rem solid $color-pear;
+  background: $color-firefly;
+
+  &__label-value {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__label {
+    @include instructions-text-label;
+  }
+
+  &__monthly-value {
+    color: $color-pear;
+    font-size: 4rem;
+    font-weight: $fw-bold;
+  }
+
+  &__term-value {
+    @include results-header-term;
+  }
+
+  &__separator {
+    height: 0.1rem;
+    background: $color-dark-slate-grey;
   }
 }
 

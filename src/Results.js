@@ -5,7 +5,7 @@ function Results() {
   return (
     <div className="results">
       <ResultsUnavailable />
-      <ResultsAvailable />
+      {/* <ResultsAvailable /> */}
     </div>
   );
 }
