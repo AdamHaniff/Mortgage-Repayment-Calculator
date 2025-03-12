@@ -1,7 +1,13 @@
 import Input from "./Input";
 import Button from "./Button";
 
+import { useDispatch, useSelector } from "react-redux";
+import { updateField } from "./slice/formSlice";
+
 function Form() {
+  const dispatch = useDispatch();
+  const formData = useSelector((state) => state.form);
+
   return (
     <form className="inputs__form">
       <Input
