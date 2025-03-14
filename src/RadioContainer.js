@@ -1,4 +1,4 @@
-function RadioContainer({ name, value, checked }) {
+function RadioContainer({ name, value, checked, onChange }) {
   return (
     <label className="input__radio-container">
       <input
@@ -7,6 +7,7 @@ function RadioContainer({ name, value, checked }) {
         name={name}
         value={value}
         checked={checked}
+        onChange={onChange}
       />
       <span className="input__radio-custom"></span>
       {value === "repayment" ? "Repayment" : "Interest Only"}

@@ -1,10 +1,13 @@
 import InputError from "./InputError";
 import RadioContainer from "./RadioContainer";
 
-function Input({ label, name, prefixSuffix, hasSuffix }) {
+function Input({ label, name, prefixSuffix, hasSuffix, value, onChange }) {
   return (
     <div className="input">
-      <label className="input__label" htmlFor={name}>
+      <label
+        className="input__label"
+        {...(name !== "type" && { htmlFor: name })}
+      >
         {label}
       </label>
       {name !== "type" ? (
@@ -12,12 +15,28 @@ function Input({ label, name, prefixSuffix, hasSuffix }) {
           <div className={`input__prefix-suffix ${hasSuffix ? "suffix" : ""}`}>
             {prefixSuffix}
           </div>
-          <input className="input__input" id={name} />
+          <input
+            className="input__input"
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+          />
         </div>
       ) : (
         <div className="input__radios">
-          <RadioContainer name={name} value="repayment" checked={false} />
-          <RadioContainer name={name} value="interest-only" checked={false} />
+          <RadioContainer
+            name={name}
+            value="repayment"
+            checked={value === "repayment"}
+            onChange={onChange}
+          />
+          <RadioContainer
+            name={name}
+            value="interest-only"
+            checked={value === "interest-only"}
+            onChange={onChange}
+          />
         </div>
       )}
       {/* <InputError /> */}
