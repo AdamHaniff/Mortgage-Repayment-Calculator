@@ -12,13 +12,14 @@ function Form() {
   // HANDLER FUNCTIONS
   function handleChange(e) {
     let { name, value } = e.target;
-    const numValue = parseFloat(value);
+    const rawValue = value.replace(/,/g, ""); // Remove commas for processing
+    const numValue = parseFloat(rawValue);
 
     // Allow only numbers and decimals (no letters)
-    if (!/^\d*\.?\d*$/.test(value)) return;
+    if (!/^\d*\.?\d*$/.test(rawValue)) return;
 
     // Prevent more than 2 decimal places
-    if (value.includes(".") && value.split(".")[1].length > 2) return;
+    if (rawValue.includes(".") && rawValue.split(".")[1].length > 2) return;
 
     // Specific validation for mortgage amount
     if (name === "amount") {
@@ -35,7 +36,18 @@ function Form() {
       if (numValue > 30 || numValue < 0.1) return;
     }
 
-    dispatch(updateField({ name, value }));
+    let formattedValue = rawValue;
+
+    // Format the mortgage amount, but preserve decimals
+    if (name === "amount") {
+      formattedValue = rawValue
+        ? rawValue.includes(".")
+          ? rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          : Number(rawValue).toLocaleString()
+        : "";
+    }
+
+    dispatch(updateField({ name, value: formattedValue }));
   }
 
   return (
