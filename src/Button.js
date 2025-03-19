@@ -1,6 +1,6 @@
 function Button() {
   return (
-    <button className="inputs__btn" type="button">
+    <button className="inputs__btn" type="submit">
       <img
         className="inputs__btn-icon"
         src="./assets/images/icon-calculator.svg"

@@ -1,25 +1,24 @@
 // HELPER FUNCTIONS
+
+// prettier-ignore
 function isNotValid(name, value, rawValue, numValue) {
-  // Allow only numbers and decimals (no letters)
-  if (!/^\d*\.?\d*$/.test(rawValue)) return true;
+  return (
+    // Allow only numbers and decimals (no letters)
+    !/^\d*\.?\d*$/.test(rawValue) ||
 
-  // Prevent more than 2 decimal places
-  if (rawValue.includes(".") && rawValue.split(".")[1].length > 2) return true;
+    // Prevent more than 2 decimal places
+    (rawValue.includes(".") && rawValue.split(".")[1].length > 2) ||
 
-  // Specific validation for mortgage amount
-  if (name === "amount") {
-    if (numValue > 10_000_000) return true;
-  }
+    // Specific validation for mortgage amount
+    (name === "amount" && numValue > 10_000_000) ||
 
-  // Specific validation for mortgage term
-  if (name === "term") {
-    if (numValue > 50 || numValue < 1 || value.includes(".")) return true;
-  }
-
-  // Specific validation for mortgage rate
-  if (name === "rate") {
-    if (numValue > 30 || numValue < 0.1) return true;
-  }
+    // Specific validation for mortgage term
+    (name === "term" &&
+      (numValue > 50 || numValue < 1 || value.includes("."))) ||
+      
+    // Specific validation for mortgage rate
+    (name === "rate" && (numValue > 30 || numValue < 0.1))
+  );
 }
 
 function formatMortgageAmount(formattedValue, rawValue, name) {

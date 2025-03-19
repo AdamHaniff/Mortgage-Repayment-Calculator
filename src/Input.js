@@ -1,7 +1,15 @@
 import InputError from "./InputError";
 import RadioContainer from "./RadioContainer";
 
-function Input({ label, name, prefixSuffix, hasSuffix, value, onChange }) {
+function Input({
+  label,
+  name,
+  prefixSuffix,
+  hasSuffix,
+  value,
+  onChange,
+  error,
+}) {
   return (
     <div className="input">
       <label
@@ -39,7 +47,7 @@ function Input({ label, name, prefixSuffix, hasSuffix, value, onChange }) {
           />
         </div>
       )}
-      {/* <InputError /> */}
+      {error && <InputError message={error} />}
     </div>
   );
 }
