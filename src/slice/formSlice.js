@@ -5,6 +5,7 @@ const initialState = {
   term: "",
   rate: "",
   type: "",
+  submitted: false,
 };
 
 const formSlice = createSlice({
@@ -15,8 +16,12 @@ const formSlice = createSlice({
       const { name, value } = action.payload;
       state[name] = value;
     },
+
+    setSubmitted: (state, action) => {
+      state.submitted = action.payload;
+    },
   },
 });
 
-export const { updateField } = formSlice.actions;
+export const { updateField, setSubmitted } = formSlice.actions;
 export default formSlice.reducer;

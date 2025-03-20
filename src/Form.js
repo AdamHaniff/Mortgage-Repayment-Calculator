@@ -2,7 +2,7 @@ import Input from "./Input";
 import Button from "./Button";
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateField } from "./slice/formSlice";
+import { updateField, setSubmitted } from "./slice/formSlice";
 import { isNotValid, formatMortgageAmount } from "./js/helpers";
 import { useState } from "react";
 
@@ -58,8 +58,9 @@ function Form() {
 
     setFormErrors(errors); // Store errors locally
 
+    // If there are no errors, set the submitted state to true
     if (Object.keys(errors).length === 0) {
-      // DO SOMETHING IF THERE ARE NO ERRORS
+      dispatch(setSubmitted(true));
     }
   }
 

@@ -19,8 +19,16 @@ function Input({
         {label}
       </label>
       {name !== "type" ? (
-        <div className="input__container">
-          <div className={`input__prefix-suffix ${hasSuffix ? "suffix" : ""}`}>
+        <div
+          className={`input__container ${
+            error ? "input__container--error" : ""
+          }`}
+        >
+          <div
+            className={`input__prefix-suffix ${hasSuffix ? "suffix" : ""} ${
+              error ? "input__prefix-suffix--error" : ""
+            }`}
+          >
             {prefixSuffix}
           </div>
           <input
