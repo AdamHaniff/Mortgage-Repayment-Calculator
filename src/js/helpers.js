@@ -33,4 +33,46 @@ function formatMortgageAmount(formattedValue, rawValue, name) {
   }
 }
 
-export { isNotValid, formatMortgageAmount };
+function calculateInterestOnlyPayment(amount, rate) {
+  const monthlyPayment = (amount * (rate / 100)) / 12;
+  return monthlyPayment;
+}
+
+function totalInterestOnlyRepayment(amount, rate, term) {
+  const monthlyPayment = calculateInterestOnlyPayment(amount, rate);
+  return monthlyPayment * (term * 12);
+}
+
+function calculateRepaymentMortgage(amount, rate, term) {
+  const monthlyRate = rate / 100 / 12;
+  const numberOfPayments = term * 12;
+
+  return (
+    (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -numberOfPayments))
+  );
+}
+
+function totalRepayment(amount, rate, term) {
+  const monthlyPayment = calculateRepaymentMortgage(amount, rate, term);
+  return monthlyPayment * (term * 12);
+}
+
+function calculateMortgage(amount, rate, term, type) {
+  if (type === "interest-only") {
+    return {
+      monthlyPayment: calculateInterestOnlyPayment(amount, rate),
+      totalRepayment: totalInterestOnlyRepayment(amount, rate, term),
+    };
+  } else {
+    return {
+      monthlyPayment: calculateRepaymentMortgage(amount, rate, term),
+      totalRepayment: totalRepayment(amount, rate, term),
+    };
+  }
+}
+
+function formatPayment(payment) {
+  return (Math.round(payment * 100) / 100).toLocaleString();
+}
+
+export { isNotValid, formatMortgageAmount, calculateMortgage, formatPayment };

@@ -53,7 +53,9 @@ function Form() {
     const errors = {};
 
     Object.keys(formData).forEach((key) => {
-      if (!formData[key]) errors[key] = "This field is required";
+      if (key !== "submitted" && !formData[key]) {
+        errors[key] = "This field is required";
+      }
     });
 
     setFormErrors(errors); // Store errors locally

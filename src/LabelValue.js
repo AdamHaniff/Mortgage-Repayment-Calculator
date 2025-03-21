@@ -3,7 +3,7 @@ function LabelValue({ label, value, isMonthly }) {
     <div className="card__label-value">
       <span className="card__label">{label}</span>
       <span className={isMonthly ? "card__monthly-value" : "card__term-value"}>
-        {value}
+        ${value}
       </span>
     </div>
   );
