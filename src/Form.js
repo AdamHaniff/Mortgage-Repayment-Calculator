@@ -51,9 +51,10 @@ function Form() {
   function handleSubmit(e) {
     e.preventDefault();
     const errors = {};
+    const requiredFields = ["amount", "term", "rate", "type"];
 
-    Object.keys(formData).forEach((key) => {
-      if (key !== "submitted" && !formData[key]) {
+    requiredFields.forEach((key) => {
+      if (!formData[key]) {
         errors[key] = "This field is required";
       }
     });

@@ -72,7 +72,11 @@ function calculateMortgage(amount, rate, term, type) {
 }
 
 function formatPayment(payment) {
-  return (Math.round(payment * 100) / 100).toLocaleString();
+  const rounded = Math.round(payment * 100) / 100;
+  return rounded.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 }
 
 export { isNotValid, formatMortgageAmount, calculateMortgage, formatPayment };

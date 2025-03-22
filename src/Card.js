@@ -5,7 +5,9 @@ import { calculateMortgage, formatPayment } from "./js/helpers.js";
 
 function Card() {
   // VARIABLES
-  const { amount, term, rate, type } = useSelector((state) => state.form);
+  const { amount, term, rate, type } = useSelector(
+    (state) => state.form.confirmedValues
+  );
   const formattedAmount = Number(amount.replace(/,/g, ""));
   const formattedTerm = Number(term);
   const formattedRate = Number(rate);
