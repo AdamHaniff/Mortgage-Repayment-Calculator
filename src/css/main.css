@@ -37,6 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  align-items: start;
 }
 .inputs__header {
   color: #133041;
@@ -51,6 +52,14 @@ body {
   line-height: 2.4rem;
   text-decoration-line: underline;
   text-underline-position: from-font;
+}
+.inputs__clear:focus {
+  outline: none;
+}
+.inputs__clear:focus-visible {
+  outline: 0.2rem solid #133041;
+  outline-offset: 0.2rem;
+  border-radius: 0.4rem;
 }
 .inputs__form {
   display: flex;
@@ -78,6 +87,12 @@ body {
   font-weight: 700;
   line-height: 2.25rem;
 }
+.inputs__btn:focus {
+  outline: none;
+}
+.inputs__btn:focus-visible {
+  outline: 0.2rem solid #133041;
+}
 .inputs__btn-icon {
   display: block;
   width: 2.4rem;
@@ -104,6 +119,9 @@ body {
 }
 .input__container:focus-within {
   border-color: #133041;
+}
+.input__container.input__container--error:focus-within {
+  border-color: #d73328;
 }
 .input__prefix-suffix {
   display: flex;
@@ -160,7 +178,10 @@ body {
 }
 .input__radio-container:has(.input__radio:checked) {
   background: rgba(216, 219, 47, 0.15);
-  border: 0.1rem solid #d8db2f;
+  border-color: #d8db2f;
+}
+.input__radio-container:focus-within {
+  border-color: #133041;
 }
 .input__radio {
   position: absolute;
@@ -173,6 +194,10 @@ body {
 }
 .input__radio:checked + .input__radio-custom::after {
   opacity: 1;
+}
+.input__radio:focus-visible + .input__radio-custom {
+  outline: 0.2rem solid #133041;
+  outline-offset: 0.1rem;
 }
 .input__radio-custom {
   width: 2.4rem;

@@ -96,6 +96,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    align-items: start;
   }
 
   &__header {
@@ -112,6 +113,16 @@ body {
     line-height: 2.4rem;
     text-decoration-line: underline;
     text-underline-position: from-font;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 0.2rem solid $color-elephant;
+      outline-offset: 0.2rem;
+      border-radius: 0.4rem;
+    }
   }
 
   &__form {
@@ -141,6 +152,14 @@ body {
     font-size: 1.8rem;
     font-weight: $fw-bold;
     line-height: 2.25rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 0.2rem solid $color-elephant;
+    }
   }
 
   &__btn-icon {
@@ -169,6 +188,12 @@ body {
 
     &:focus-within {
       border-color: $color-elephant;
+    }
+
+    &.input__container--error {
+      &:focus-within {
+        border-color: $color-grapefruit;
+      }
     }
   }
 
@@ -222,7 +247,11 @@ body {
 
     &:has(.input__radio:checked) {
       background: rgba(216, 219, 47, 0.15);
-      border: 0.1rem solid $color-pear;
+      border-color: $color-pear;
+    }
+
+    &:focus-within {
+      border-color: $color-elephant;
     }
   }
 
@@ -238,6 +267,11 @@ body {
       &::after {
         opacity: 1;
       }
+    }
+
+    &:focus-visible + .input__radio-custom {
+      outline: 0.2rem solid $color-elephant;
+      outline-offset: 0.1rem;
     }
   }
 

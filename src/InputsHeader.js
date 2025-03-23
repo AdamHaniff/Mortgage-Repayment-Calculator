@@ -13,7 +13,7 @@ function InputsHeader() {
   return (
     <div className="inputs__header-clear">
       <h1 className="inputs__header">Mortgage Calculator</h1>
-      <span className="inputs__clear" onClick={handleClick}>
+      <span className="inputs__clear" onClick={handleClick} tabIndex={0}>
         Clear All
       </span>
     </div>
