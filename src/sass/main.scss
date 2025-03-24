@@ -74,6 +74,25 @@ body {
   line-height: 2.4rem;
 }
 
+// *********** VARIABLES ***********
+$responsive-16px-18px: clamp(
+  1.6rem,
+  calc(1.6rem + (1.8 - 1.6) * ((100vw - 32rem) / (37.5 - 32))),
+  1.8rem
+);
+
+$responsive-30px-40px: clamp(
+  3rem,
+  calc(3rem + (4 - 3) * ((100vw - 32rem) / (37.5 - 32))),
+  4rem
+);
+
+$responsive-35px-40px: clamp(
+  3.5rem,
+  calc(3.5rem + (4 - 3.5) * ((100vw - 32rem) / (37.5 - 32))),
+  4rem
+);
+
 // ******** MOBILE LAYOUTS ********
 
 // ********* 375px LAYOUT *********
@@ -144,12 +163,12 @@ body {
     gap: 1.2rem;
     border: none;
     height: 5.6rem;
-    padding: 0 4rem;
+    padding: 0 $responsive-30px-40px;
     border-radius: 99.9rem;
     background: $color-pear;
     color: $color-elephant;
     font-family: $font-plus-jakarta-sans;
-    font-size: 1.8rem;
+    font-size: $responsive-16px-18px;
     font-weight: $fw-bold;
     line-height: 2.25rem;
 
@@ -370,7 +389,7 @@ body {
 
   &__monthly-value {
     color: $color-pear;
-    font-size: 4rem;
+    font-size: $responsive-35px-40px;
     font-weight: $fw-bold;
   }
 

@@ -6,14 +6,26 @@ function InputsHeader() {
   const dispatch = useDispatch();
 
   // HANDLER FUNCTIONS
-  function handleClick() {
+  function handleClearAll() {
     dispatch(resetForm());
+  }
+
+  function handleKeyPress(e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClearAll();
+    }
   }
 
   return (
     <div className="inputs__header-clear">
       <h1 className="inputs__header">Mortgage Calculator</h1>
-      <span className="inputs__clear" onClick={handleClick} tabIndex={0}>
+      <span
+        className="inputs__clear"
+        onClick={handleClearAll}
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+      >
         Clear All
       </span>
     </div>
