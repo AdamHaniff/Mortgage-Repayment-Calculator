@@ -81,9 +81,33 @@ $responsive-16px-18px: clamp(
   1.8rem
 );
 
+$responsive-16px-32px: clamp(
+  1.6rem,
+  calc(1.6rem + (3.2 - 1.6) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  3.2rem
+);
+
+$responsive-24px-32px: clamp(
+  2.4rem,
+  calc(2.4rem + (3.2 - 2.4) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  3.2rem
+);
+
+$responsive-24px-40px: clamp(
+  2.4rem,
+  calc(2.4rem + (4 - 2.4) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  4rem
+);
+
 $responsive-30px-40px: clamp(
   3rem,
   calc(3rem + (4 - 3) * ((100vw - 32rem) / (37.5 - 32))),
+  4rem
+);
+
+$responsive-32px-40px: clamp(
+  3.2rem,
+  calc(3.2rem + (4 - 3.2) * ((100vw - 37.5rem) / (60.8 - 37.5))),
   4rem
 );
 
@@ -91,6 +115,12 @@ $responsive-35px-40px: clamp(
   3.5rem,
   calc(3.5rem + (4 - 3.5) * ((100vw - 32rem) / (37.5 - 32))),
   4rem
+);
+
+$responsive-40px-56px: clamp(
+  4rem,
+  calc(4rem + (5.6 - 4) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  5.6rem
 );
 
 // ******** MOBILE LAYOUTS ********
@@ -101,15 +131,16 @@ $responsive-35px-40px: clamp(
 .app {
   display: flex;
   flex-direction: column;
+  max-width: 60.8rem;
 }
 
 // ************ INPUTS ************
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: $responsive-24px-40px;
   background: $color-white;
-  padding: 3.2rem 2.4rem;
+  padding: $responsive-32px-40px $responsive-24px-40px;
 
   &__header-clear {
     display: flex;
@@ -171,6 +202,7 @@ $responsive-35px-40px: clamp(
     font-size: $responsive-16px-18px;
     font-weight: $fw-bold;
     line-height: 2.25rem;
+    max-width: 32.7rem;
 
     &:focus {
       outline: none;
@@ -320,7 +352,7 @@ $responsive-35px-40px: clamp(
 // ************ RESULTS ************
 .results {
   background: $color-elephant;
-  padding: 3.2rem 2.4rem;
+  padding: $responsive-32px-40px $responsive-24px-40px;
 }
 
 // ********** UNAVAILABLE **********
@@ -350,7 +382,7 @@ $responsive-35px-40px: clamp(
 .available {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: $responsive-24px-40px;
 
   &__header-text {
     display: flex;
@@ -371,8 +403,8 @@ $responsive-35px-40px: clamp(
 .card {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  padding: 2.4rem 1.6rem;
+  gap: $responsive-16px-32px;
+  padding: $responsive-24px-32px $responsive-16px-32px;
   border-radius: 0.8rem;
   border-top: 0.4rem solid $color-pear;
   background: $color-firefly;
@@ -389,7 +421,7 @@ $responsive-35px-40px: clamp(
 
   &__monthly-value {
     color: $color-pear;
-    font-size: $responsive-35px-40px;
+    font-size: $responsive-40px-56px;
     font-weight: $fw-bold;
   }
 
@@ -400,6 +432,33 @@ $responsive-35px-40px: clamp(
   &__separator {
     height: 0.1rem;
     background: $color-dark-slate-grey;
+  }
+}
+
+// ***** 320px - 374px LAYOUT *****
+@media only screen and (max-width: 23.4375em) {
+  // ************ CARD ************
+  .card {
+    &__monthly-value {
+      font-size: $responsive-35px-40px;
+    }
+  }
+}
+
+// ********* 608px LAYOUT *********
+@media only screen and (min-width: 38em) {
+  // *********** INPUTS ***********
+  .inputs {
+    &__term-rate {
+      flex-direction: row;
+    }
+  }
+
+  // ************ CARD ************
+  .card {
+    &__monthly-value {
+      line-height: 7rem;
+    }
   }
 }
 

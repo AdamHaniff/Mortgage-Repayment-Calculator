@@ -24,14 +24,15 @@ body {
 .app {
   display: flex;
   flex-direction: column;
+  max-width: 60.8rem;
 }
 
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
   background: #fff;
-  padding: 3.2rem 2.4rem;
+  padding: clamp(3.2rem, 3.2rem + 0.8 * (100vw - 37.5rem) / 23.3, 4rem) clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
 }
 .inputs__header-clear {
   display: flex;
@@ -86,6 +87,7 @@ body {
   font-size: clamp(1.6rem, 1.6rem + 0.2 * (100vw - 32rem) / 5.5, 1.8rem);
   font-weight: 700;
   line-height: 2.25rem;
+  max-width: 32.7rem;
 }
 .inputs__btn:focus {
   outline: none;
@@ -222,7 +224,7 @@ body {
 
 .results {
   background: #133041;
-  padding: 3.2rem 2.4rem;
+  padding: clamp(3.2rem, 3.2rem + 0.8 * (100vw - 37.5rem) / 23.3, 4rem) clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
 }
 
 .unavailable {
@@ -253,7 +255,7 @@ body {
 .available {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
 }
 .available__header-text {
   display: flex;
@@ -276,8 +278,8 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  padding: 2.4rem 1.6rem;
+  gap: clamp(1.6rem, 1.6rem + 1.6 * (100vw - 37.5rem) / 23.3, 3.2rem);
+  padding: clamp(2.4rem, 2.4rem + 0.8 * (100vw - 37.5rem) / 23.3, 3.2rem) clamp(1.6rem, 1.6rem + 1.6 * (100vw - 37.5rem) / 23.3, 3.2rem);
   border-radius: 0.8rem;
   border-top: 0.4rem solid #d8db2f;
   background: rgba(0, 0, 0, 0.25);
@@ -295,7 +297,7 @@ body {
 }
 .card__monthly-value {
   color: #d8db2f;
-  font-size: clamp(3.5rem, 3.5rem + 0.5 * (100vw - 32rem) / 5.5, 4rem);
+  font-size: clamp(4rem, 4rem + 1.6 * (100vw - 37.5rem) / 23.3, 5.6rem);
   font-weight: 700;
 }
 .card__term-value {
@@ -309,6 +311,19 @@ body {
   background: rgba(154, 190, 213, 0.25);
 }
 
+@media only screen and (max-width: 23.4375em) {
+  .card__monthly-value {
+    font-size: clamp(3.5rem, 3.5rem + 0.5 * (100vw - 32rem) / 5.5, 4rem);
+  }
+}
+@media only screen and (min-width: 38em) {
+  .inputs__term-rate {
+    flex-direction: row;
+  }
+  .card__monthly-value {
+    line-height: 7rem;
+  }
+}
 .suffix {
   order: 1;
   border-radius: 0 0.4rem 0.4rem 0;
