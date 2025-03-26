@@ -83,19 +83,19 @@ $responsive-16px-18px: clamp(
 
 $responsive-16px-32px: clamp(
   1.6rem,
-  calc(1.6rem + (3.2 - 1.6) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  calc(1.6rem + (3.2 - 1.6) * ((100vw - 37.5rem) / (68.8 - 37.5))),
   3.2rem
 );
 
 $responsive-24px-32px: clamp(
   2.4rem,
-  calc(2.4rem + (3.2 - 2.4) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  calc(2.4rem + (3.2 - 2.4) * ((100vw - 37.5rem) / (68.8 - 37.5))),
   3.2rem
 );
 
 $responsive-24px-40px: clamp(
   2.4rem,
-  calc(2.4rem + (4 - 2.4) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  calc(2.4rem + (4 - 2.4) * ((100vw - 37.5rem) / (68.8 - 37.5))),
   4rem
 );
 
@@ -107,7 +107,7 @@ $responsive-30px-40px: clamp(
 
 $responsive-32px-40px: clamp(
   3.2rem,
-  calc(3.2rem + (4 - 3.2) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  calc(3.2rem + (4 - 3.2) * ((100vw - 37.5rem) / (68.8 - 37.5))),
   4rem
 );
 
@@ -119,7 +119,7 @@ $responsive-35px-40px: clamp(
 
 $responsive-40px-56px: clamp(
   4rem,
-  calc(4rem + (5.6 - 4) * ((100vw - 37.5rem) / (60.8 - 37.5))),
+  calc(4rem + (5.6 - 4) * ((100vw - 37.5rem) / (68.8 - 37.5))),
   5.6rem
 );
 
@@ -131,7 +131,7 @@ $responsive-40px-56px: clamp(
 .app {
   display: flex;
   flex-direction: column;
-  max-width: 60.8rem;
+  max-width: 68.8rem;
 }
 
 // ************ INPUTS ************
@@ -445,10 +445,32 @@ $responsive-40px-56px: clamp(
   }
 }
 
-// ********* 608px LAYOUT *********
-@media only screen and (min-width: 38em) {
+// ********* 688px LAYOUT *********
+@media only screen and (min-width: 43em) {
+  // ************ ROOT ************
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+  }
+
+  // ************* APP *************
+  .app {
+    border-radius: 2.4rem;
+    overflow: hidden;
+    box-shadow: 0 3.2rem 6.4rem 0 rgba(19, 48, 65, 0.1);
+  }
+
   // *********** INPUTS ***********
   .inputs {
+    &__header-clear {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: initial;
+    }
+
     &__term-rate {
       flex-direction: row;
     }
@@ -459,6 +481,33 @@ $responsive-40px-56px: clamp(
     &__monthly-value {
       line-height: 7rem;
     }
+  }
+}
+
+// ********* 1008px LAYOUT *********
+@media only screen and (min-width: 63em) {
+  // ************* APP *************
+  .app {
+    flex-direction: row;
+    max-width: 100.8rem;
+    background: $color-white;
+  }
+
+  // *********** INPUTS ***********
+  .inputs {
+    flex: 1;
+  }
+
+  // *********** RESULTS ***********
+  .results {
+    flex: 1;
+    border-radius: 0 0 0 8rem;
+    display: flex;
+  }
+
+  // ********* UNAVAILABLE *********
+  .unavailable {
+    align-self: center;
   }
 }
 

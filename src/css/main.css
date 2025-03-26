@@ -24,15 +24,15 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  max-width: 60.8rem;
+  max-width: 68.8rem;
 }
 
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
+  gap: clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 31.3, 4rem);
   background: #fff;
-  padding: clamp(3.2rem, 3.2rem + 0.8 * (100vw - 37.5rem) / 23.3, 4rem) clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
+  padding: clamp(3.2rem, 3.2rem + 0.8 * (100vw - 37.5rem) / 31.3, 4rem) clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 31.3, 4rem);
 }
 .inputs__header-clear {
   display: flex;
@@ -224,7 +224,7 @@ body {
 
 .results {
   background: #133041;
-  padding: clamp(3.2rem, 3.2rem + 0.8 * (100vw - 37.5rem) / 23.3, 4rem) clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
+  padding: clamp(3.2rem, 3.2rem + 0.8 * (100vw - 37.5rem) / 31.3, 4rem) clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 31.3, 4rem);
 }
 
 .unavailable {
@@ -255,7 +255,7 @@ body {
 .available {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 23.3, 4rem);
+  gap: clamp(2.4rem, 2.4rem + 1.6 * (100vw - 37.5rem) / 31.3, 4rem);
 }
 .available__header-text {
   display: flex;
@@ -278,8 +278,8 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.6rem, 1.6rem + 1.6 * (100vw - 37.5rem) / 23.3, 3.2rem);
-  padding: clamp(2.4rem, 2.4rem + 0.8 * (100vw - 37.5rem) / 23.3, 3.2rem) clamp(1.6rem, 1.6rem + 1.6 * (100vw - 37.5rem) / 23.3, 3.2rem);
+  gap: clamp(1.6rem, 1.6rem + 1.6 * (100vw - 37.5rem) / 31.3, 3.2rem);
+  padding: clamp(2.4rem, 2.4rem + 0.8 * (100vw - 37.5rem) / 31.3, 3.2rem) clamp(1.6rem, 1.6rem + 1.6 * (100vw - 37.5rem) / 31.3, 3.2rem);
   border-radius: 0.8rem;
   border-top: 0.4rem solid #d8db2f;
   background: rgba(0, 0, 0, 0.25);
@@ -297,7 +297,7 @@ body {
 }
 .card__monthly-value {
   color: #d8db2f;
-  font-size: clamp(4rem, 4rem + 1.6 * (100vw - 37.5rem) / 23.3, 5.6rem);
+  font-size: clamp(4rem, 4rem + 1.6 * (100vw - 37.5rem) / 31.3, 5.6rem);
   font-weight: 700;
 }
 .card__term-value {
@@ -316,12 +316,47 @@ body {
     font-size: clamp(3.5rem, 3.5rem + 0.5 * (100vw - 32rem) / 5.5, 4rem);
   }
 }
-@media only screen and (min-width: 38em) {
+@media only screen and (min-width: 43em) {
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+  }
+  .app {
+    border-radius: 2.4rem;
+    overflow: hidden;
+    box-shadow: 0 3.2rem 6.4rem 0 rgba(19, 48, 65, 0.1);
+  }
+  .inputs__header-clear {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: initial;
+  }
   .inputs__term-rate {
     flex-direction: row;
   }
   .card__monthly-value {
     line-height: 7rem;
+  }
+}
+@media only screen and (min-width: 63em) {
+  .app {
+    flex-direction: row;
+    max-width: 100.8rem;
+    background: #fff;
+  }
+  .inputs {
+    flex: 1;
+  }
+  .results {
+    flex: 1;
+    border-radius: 0 0 0 8rem;
+    display: flex;
+  }
+  .unavailable {
+    align-self: center;
   }
 }
 .suffix {
