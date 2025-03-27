@@ -163,6 +163,7 @@ $responsive-40px-56px: clamp(
     line-height: 2.4rem;
     text-decoration-line: underline;
     text-underline-position: from-font;
+    transition: color 0.3s;
 
     &:focus {
       outline: none;
@@ -237,12 +238,30 @@ $responsive-40px-56px: clamp(
     @include input-container-styles;
     transition: border-color 0.3s;
 
-    &:focus-within {
+    &:hover {
       border-color: $color-elephant;
+    }
+
+    &:focus-within {
+      border-color: $color-pear;
+
+      & .input__prefix-suffix {
+        background: $color-pear;
+        color: $color-elephant;
+      }
     }
 
     &.input__container--error {
       &:focus-within {
+        border-color: $color-grapefruit;
+
+        & .input__prefix-suffix {
+          background: $color-grapefruit;
+          color: $color-white;
+        }
+      }
+
+      &:hover {
         border-color: $color-grapefruit;
       }
     }
@@ -270,6 +289,14 @@ $responsive-40px-56px: clamp(
     font-family: inherit;
     caret-color: $color-dark-jungle-green;
     @include prefix-suffix-input;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      cursor: text;
+    }
   }
 
   &__error {
@@ -484,6 +511,8 @@ $responsive-40px-56px: clamp(
   }
 }
 
+// ******** DESKTOP LAYOUTS ********
+
 // ********* 1008px LAYOUT *********
 @media only screen and (min-width: 63em) {
   // ************* APP *************
@@ -508,6 +537,37 @@ $responsive-40px-56px: clamp(
   // ********* UNAVAILABLE *********
   .unavailable {
     align-self: center;
+  }
+}
+
+// ***** DESKTOP HOVER STATES *****
+
+// ********* 992px LAYOUT *********
+@media only screen and (min-width: 62em) {
+  // *********** INPUTS ***********
+  .inputs {
+    &__clear:hover {
+      cursor: pointer;
+      color: $color-elephant;
+    }
+
+    &__btn:hover {
+      cursor: pointer;
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0.5) 100%
+        ),
+        $color-pear;
+    }
+  }
+
+  // ************ INPUT ************
+  .input {
+    &__radio-container:hover {
+      cursor: pointer;
+      border-color: $color-pear;
+    }
   }
 }
 

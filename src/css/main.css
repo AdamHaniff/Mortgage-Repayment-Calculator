@@ -53,6 +53,7 @@ body {
   line-height: 2.4rem;
   text-decoration-line: underline;
   text-underline-position: from-font;
+  transition: color 0.3s;
 }
 .inputs__clear:focus {
   outline: none;
@@ -119,10 +120,24 @@ body {
   border: 0.1rem solid #6b94a8;
   transition: border-color 0.3s;
 }
-.input__container:focus-within {
+.input__container:hover {
   border-color: #133041;
 }
+.input__container:focus-within {
+  border-color: #d8db2f;
+}
+.input__container:focus-within .input__prefix-suffix {
+  background: #d8db2f;
+  color: #133041;
+}
 .input__container.input__container--error:focus-within {
+  border-color: #d73328;
+}
+.input__container.input__container--error:focus-within .input__prefix-suffix {
+  background: #d73328;
+  color: #fff;
+}
+.input__container.input__container--error:hover {
   border-color: #d73328;
 }
 .input__prefix-suffix {
@@ -152,6 +167,12 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 2.25rem;
+}
+.input__input:hover {
+  cursor: pointer;
+}
+.input__input:focus {
+  cursor: text;
 }
 .input__error {
   color: #d73328;
@@ -357,6 +378,20 @@ body {
   }
   .unavailable {
     align-self: center;
+  }
+}
+@media only screen and (min-width: 62em) {
+  .inputs__clear:hover {
+    cursor: pointer;
+    color: #133041;
+  }
+  .inputs__btn:hover {
+    cursor: pointer;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), #d8db2f;
+  }
+  .input__radio-container:hover {
+    cursor: pointer;
+    border-color: #d8db2f;
   }
 }
 .suffix {
