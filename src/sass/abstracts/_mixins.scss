@@ -1,0 +1,28 @@
+// ************ MIXINS ************
+@mixin prefix-suffix-input {
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: $fw-bold;
+  line-height: 2.25rem;
+}
+
+@mixin input-container-styles {
+  display: flex;
+  height: 4.8rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid $color-grey-blue;
+}
+
+@mixin results-header-term {
+  color: $color-white;
+  font-size: 2.4rem;
+  font-weight: $fw-bold;
+  line-height: 3rem;
+}
+
+@mixin instructions-text-label {
+  color: $color-light-grey-blue;
+  font-size: 1.6rem;
+  font-weight: $fw-medium;
+  line-height: 2.4rem;
+}

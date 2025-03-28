@@ -1,7 +1,7 @@
 import LabelValue from "./LabelValue";
 
 import { useSelector } from "react-redux";
-import { calculateMortgage, formatPayment } from "./js/helpers.js";
+import { calculateMortgage, formatPayment } from "../js/helpers";
 
 function Card() {
   // VARIABLES

@@ -1,13 +1,14 @@
 import { useDispatch } from "react-redux";
-import { resetForm } from "./slice/formSlice";
+import { resetForm } from "../slice/formSlice";
 
-function InputsHeader() {
+function InputsHeader({ setFormErrors }) {
   // VARIABLES
   const dispatch = useDispatch();
 
   // HANDLER FUNCTIONS
   function handleClearAll() {
     dispatch(resetForm());
+    setFormErrors({});
   }
 
   function handleKeyPress(e) {

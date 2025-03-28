@@ -1,0 +1,388 @@
+// ******** MOBILE LAYOUTS ********
+
+// ********* 375px LAYOUT *********
+
+// ************** APP **************
+.app {
+  display: flex;
+  flex-direction: column;
+  max-width: 68.8rem;
+}
+
+// ************ INPUTS ************
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: $responsive-24px-40px;
+  background: $color-white;
+  padding: $responsive-32px-40px $responsive-24px-40px;
+
+  &__header-clear {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: start;
+  }
+
+  &__header {
+    color: $color-elephant;
+    font-size: 2.4rem;
+    font-weight: $fw-bold;
+    line-height: 3rem;
+  }
+
+  &__clear {
+    color: $color-marble-blue;
+    font-size: 1.6rem;
+    font-weight: $fw-medium;
+    line-height: 2.4rem;
+    text-decoration-line: underline;
+    text-underline-position: from-font;
+    transition: color 0.3s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 0.2rem solid $color-elephant;
+      outline-offset: 0.2rem;
+      border-radius: 0.4rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  &__term-rate {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    border: none;
+    height: 5.6rem;
+    padding: 0 $responsive-30px-40px;
+    border-radius: 99.9rem;
+    background: $color-pear;
+    color: $color-elephant;
+    font-family: $font-plus-jakarta-sans;
+    font-size: $responsive-16px-18px;
+    font-weight: $fw-bold;
+    line-height: 2.25rem;
+    max-width: 32.7rem;
+    margin-top: $responsive-0px-16px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 0.2rem solid $color-elephant;
+    }
+  }
+
+  &__btn-icon {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+// ************ INPUT *************
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  &__label {
+    color: $color-marble-blue;
+    font-size: 1.6rem;
+    font-weight: $fw-medium;
+    line-height: 2.4rem;
+  }
+
+  &__container {
+    @include input-container-styles;
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $color-elephant;
+    }
+
+    &:focus-within {
+      border-color: $color-pear;
+
+      & .input__prefix-suffix {
+        background: $color-pear;
+        color: $color-elephant;
+      }
+    }
+
+    &.input__container--error {
+      &:focus-within {
+        border-color: $color-grapefruit;
+
+        & .input__prefix-suffix {
+          background: $color-grapefruit;
+          color: $color-white;
+        }
+      }
+
+      &:hover {
+        border-color: $color-grapefruit;
+      }
+    }
+  }
+
+  &__prefix-suffix {
+    display: flex;
+    padding: 1.2rem 1.6rem;
+    justify-content: center;
+    align-items: center;
+    background: $color-pattens-blue;
+    border-radius: 0.4rem 0 0 0.4rem;
+    color: $color-marble-blue;
+    transition: background-color 0.3s, color 0.3s;
+    @include prefix-suffix-input;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0 1.6rem;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    color: $color-elephant;
+    font-family: inherit;
+    caret-color: $color-dark-jungle-green;
+    @include prefix-suffix-input;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      cursor: text;
+    }
+  }
+
+  &__error {
+    color: $color-grapefruit;
+    font-size: 1.4rem;
+    font-weight: $fw-medium;
+    line-height: 2.1rem;
+  }
+
+  &__radios {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__radio-container {
+    @include input-container-styles;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 0 1.6rem;
+    color: $color-elephant;
+    font-size: 1.8rem;
+    font-weight: $fw-bold;
+    line-height: 2.25rem;
+    transition: background-color 0.3s, border-color 0.3s;
+
+    &:has(.input__radio:checked) {
+      background: rgba(216, 219, 47, 0.15);
+      border-color: $color-pear;
+    }
+
+    &:focus-within {
+      border-color: $color-elephant;
+    }
+  }
+
+  &__radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .input__radio-custom {
+      border: 0.2rem solid $color-pear;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &:focus-visible + .input__radio-custom {
+      outline: 0.2rem solid $color-elephant;
+      outline-offset: 0.1rem;
+    }
+  }
+
+  &__radio-custom {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    border: 0.2rem solid $color-marble-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.3s;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 1.05rem;
+      height: 1.05rem;
+      background-color: $color-pear;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+}
+
+// ************ RESULTS ************
+.results {
+  background: $color-elephant;
+  padding: $responsive-32px-40px $responsive-24px-40px;
+}
+
+// ********** UNAVAILABLE **********
+.unavailable {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-items: center;
+
+  &__illustration {
+    display: block;
+    width: 19.2rem;
+    height: 19.2rem;
+  }
+
+  &__results-text {
+    @include results-header-term;
+  }
+
+  &__instructions {
+    @include instructions-text-label;
+    text-align: center;
+  }
+}
+
+// *********** AVAILABLE ***********
+.available {
+  display: flex;
+  flex-direction: column;
+  gap: $responsive-24px-40px;
+
+  &__header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &__header {
+    @include results-header-term;
+  }
+
+  &__text {
+    @include instructions-text-label;
+  }
+}
+
+// ************* CARD *************
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $responsive-16px-32px;
+  padding: $responsive-24px-32px $responsive-16px-32px;
+  border-radius: 0.8rem;
+  border-top: 0.4rem solid $color-pear;
+  background: $color-firefly;
+
+  &__label-value {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__label {
+    @include instructions-text-label;
+  }
+
+  &__monthly-value {
+    color: $color-pear;
+    font-size: $responsive-40px-56px;
+    font-weight: $fw-bold;
+  }
+
+  &__term-value {
+    @include results-header-term;
+  }
+
+  &__separator {
+    height: 0.1rem;
+    background: $color-dark-slate-grey;
+  }
+}
+
+// ***** 320px - 374px LAYOUT *****
+@media only screen and (max-width: 23.4375em) {
+  // ************ CARD ************
+  .card {
+    &__monthly-value {
+      font-size: $responsive-35px-40px;
+    }
+  }
+}
+
+// ********* 688px LAYOUT *********
+@media only screen and (min-width: 43em) {
+  // ************ ROOT ************
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+  }
+
+  // ************* APP *************
+  .app {
+    border-radius: 2.4rem;
+    overflow: hidden;
+    box-shadow: 0 3.2rem 6.4rem 0 rgba(19, 48, 65, 0.1);
+  }
+
+  // *********** INPUTS ***********
+  .inputs {
+    &__header-clear {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: initial;
+    }
+
+    &__term-rate {
+      flex-direction: row;
+    }
+  }
+
+  // ************ CARD ************
+  .card {
+    &__monthly-value {
+      line-height: 7rem;
+    }
+  }
+}

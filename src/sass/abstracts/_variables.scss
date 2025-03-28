@@ -1,0 +1,77 @@
+// ********* DESIGN SYSTEM *********
+
+// ************ COLORS ************
+$color-white: #fff;
+$color-elephant: #133041;
+$color-marble-blue: #4e6e7e;
+$color-grey-blue: #6b94a8;
+$color-pear: #d8db2f;
+$color-pattens-blue: #e4f4fd;
+$color-rum-swizzle: rgba(216, 219, 47, 0.15);
+$color-light-grey-blue: #9abed5;
+$color-firefly: rgba(0, 0, 0, 0.25);
+$color-dark-slate-grey: rgba(154, 190, 213, 0.25);
+$color-dark-jungle-green: #1e1e1e;
+$color-grapefruit: #d73328;
+
+// ********** FONT-FAMILY **********
+$font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+
+// ********* FONT-WEIGHTS *********
+$fw-medium: 500;
+$fw-bold: 700;
+
+// *********** VARIABLES ***********
+$responsive-0px-16px: clamp(
+  0rem,
+  calc(0rem + (1.6 - 0) * ((100vw - 37.5rem) / (68.8 - 37.5))),
+  1.6rem
+);
+
+$responsive-16px-18px: clamp(
+  1.6rem,
+  calc(1.6rem + (1.8 - 1.6) * ((100vw - 32rem) / (37.5 - 32))),
+  1.8rem
+);
+
+$responsive-16px-32px: clamp(
+  1.6rem,
+  calc(1.6rem + (3.2 - 1.6) * ((100vw - 37.5rem) / (68.8 - 37.5))),
+  3.2rem
+);
+
+$responsive-24px-32px: clamp(
+  2.4rem,
+  calc(2.4rem + (3.2 - 2.4) * ((100vw - 37.5rem) / (68.8 - 37.5))),
+  3.2rem
+);
+
+$responsive-24px-40px: clamp(
+  2.4rem,
+  calc(2.4rem + (4 - 2.4) * ((100vw - 37.5rem) / (68.8 - 37.5))),
+  4rem
+);
+
+$responsive-30px-40px: clamp(
+  3rem,
+  calc(3rem + (4 - 3) * ((100vw - 32rem) / (37.5 - 32))),
+  4rem
+);
+
+$responsive-32px-40px: clamp(
+  3.2rem,
+  calc(3.2rem + (4 - 3.2) * ((100vw - 37.5rem) / (68.8 - 37.5))),
+  4rem
+);
+
+$responsive-35px-40px: clamp(
+  3.5rem,
+  calc(3.5rem + (4 - 3.5) * ((100vw - 32rem) / (37.5 - 32))),
+  4rem
+);
+
+$responsive-40px-56px: clamp(
+  4rem,
+  calc(4rem + (5.6 - 4) * ((100vw - 37.5rem) / (68.8 - 37.5))),
+  5.6rem
+);

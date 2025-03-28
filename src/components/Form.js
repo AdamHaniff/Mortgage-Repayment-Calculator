@@ -2,14 +2,10 @@ import Input from "./Input";
 import Button from "./Button";
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateField, setSubmitted } from "./slice/formSlice";
-import { isNotValid, formatMortgageAmount } from "./js/helpers";
-import { useState } from "react";
+import { updateField, setSubmitted } from "../slice/formSlice";
+import { isNotValid, formatMortgageAmount } from "../js/helpers";
 
-function Form() {
-  // STATE
-  const [formErrors, setFormErrors] = useState({});
-
+function Form({ formErrors, setFormErrors }) {
   // VARIABLES
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);

@@ -1,0 +1,28 @@
+// ******** DESKTOP LAYOUTS ********
+
+// ********* 1008px LAYOUT *********
+@media only screen and (min-width: 63em) {
+  // ************* APP *************
+  .app {
+    flex-direction: row;
+    max-width: 100.8rem;
+    background: $color-white;
+  }
+
+  // *********** INPUTS ***********
+  .inputs {
+    flex: 1;
+  }
+
+  // *********** RESULTS ***********
+  .results {
+    flex: 1;
+    border-radius: 0 0 0 8rem;
+    display: flex;
+  }
+
+  // ********* UNAVAILABLE *********
+  .unavailable {
+    align-self: center;
+  }
+}
